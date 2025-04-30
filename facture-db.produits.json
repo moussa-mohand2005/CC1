@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "68123cecab750f1b4868577b"
+  },
+  "nom": "Ordinateur Portable HP",
+  "prixUnitaire": 899.99,
+  "categorie": "Électronique"
+},
+{
+  "_id": {
+    "$oid": "68123cecab750f1b4868577c"
+  },
+  "nom": "Smartphone Samsung",
+  "prixUnitaire": 599.99,
+  "categorie": "Électronique"
+},
+{
+  "_id": {
+    "$oid": "68123cecab750f1b4868577d"
+  },
+  "nom": "Bureau de Travail",
+  "prixUnitaire": 249.99,
+  "categorie": "Mobilier"
+},
+{
+  "_id": {
+    "$oid": "68123cecab750f1b4868577e"
+  },
+  "nom": "Chaise de Bureau",
+  "prixUnitaire": 129.99,
+  "categorie": "Mobilier"
+}]

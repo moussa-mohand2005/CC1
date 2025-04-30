@@ -1,0 +1,264 @@
+[{
+  "_id": {
+    "$oid": "68123cfcab750f1b48685782"
+  },
+  "client": "client_id_1",
+  "date": "2025-04-30T00:00:00.000Z",
+  "produits": [
+    {
+      "produit": "produit_id_1",
+      "nom": "Ordinateur Portable HP",
+      "quantite": 2,
+      "prixUnitaire": 899.99,
+      "total": 1799.98
+    },
+    {
+      "produit": "produit_id_2",
+      "nom": "Smartphone Samsung",
+      "quantite": 1,
+      "prixUnitaire": 599.99,
+      "total": 599.99
+    }
+  ],
+  "totalHT": 2399.97,
+  "tva": 479.99,
+  "totalTTC": 2879.96
+},
+{
+  "_id": {
+    "$oid": "68123cfcab750f1b48685783"
+  },
+  "client": "client_id_2",
+  "date": "2025-04-29T00:00:00.000Z",
+  "produits": [
+    {
+      "produit": "produit_id_3",
+      "nom": "Bureau de Travail",
+      "quantite": 1,
+      "prixUnitaire": 249.99,
+      "total": 249.99
+    },
+    {
+      "produit": "produit_id_4",
+      "nom": "Chaise de Bureau",
+      "quantite": 4,
+      "prixUnitaire": 129.99,
+      "total": 519.96
+    }
+  ],
+  "totalHT": 769.95,
+  "tva": 153.99,
+  "totalTTC": 923.94
+},
+{
+  "_id": {
+    "$oid": "681243f95b4ed70e024a8a0f"
+  },
+  "client": {
+    "$oid": "68123cdbab750f1b48685775"
+  },
+  "date": {
+    "$date": "2025-04-30T00:00:00.000Z"
+  },
+  "produits": [
+    {
+      "produit": {
+        "$oid": "68123cecab750f1b4868577b"
+      },
+      "nom": "Ordinateur Portable HP",
+      "quantite": 1,
+      "prixUnitaire": 899.99,
+      "total": 899.99,
+      "_id": {
+        "$oid": "681243f95b4ed70e024a8a10"
+      }
+    }
+  ],
+  "totalHT": 899.99,
+  "tva": 179.99800000000002,
+  "totalTTC": 1079.988,
+  "createdAt": {
+    "$date": "2025-04-30T15:38:33.004Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-30T15:38:33.004Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681248c35b4ed70e024a8a1e"
+  },
+  "client": {
+    "$oid": "68123cdbab750f1b48685774"
+  },
+  "date": {
+    "$date": "2025-04-30T00:00:00.000Z"
+  },
+  "produits": [
+    {
+      "produit": {
+        "$oid": "68123cecab750f1b4868577c"
+      },
+      "nom": "Smartphone Samsung",
+      "quantite": 2,
+      "prixUnitaire": 599.99,
+      "total": 1199.98,
+      "_id": {
+        "$oid": "681248c35b4ed70e024a8a1f"
+      }
+    }
+  ],
+  "totalHT": 1199.98,
+  "tva": 239.996,
+  "totalTTC": 1439.976,
+  "createdAt": {
+    "$date": "2025-04-30T15:58:59.106Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-30T15:58:59.106Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6812497e5b4ed70e024a8a25"
+  },
+  "client": {
+    "$oid": "68123cdbab750f1b48685775"
+  },
+  "date": {
+    "$date": "2025-04-30T00:00:00.000Z"
+  },
+  "produits": [
+    {
+      "produit": {
+        "$oid": "68123cecab750f1b4868577d"
+      },
+      "nom": "Bureau de Travail",
+      "quantite": 1,
+      "prixUnitaire": 249.99,
+      "total": 249.99,
+      "_id": {
+        "$oid": "6812497e5b4ed70e024a8a26"
+      }
+    }
+  ],
+  "totalHT": 249.99,
+  "tva": 49.998000000000005,
+  "totalTTC": 299.988,
+  "createdAt": {
+    "$date": "2025-04-30T16:02:06.078Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-30T16:02:06.078Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68124b335b4ed70e024a8a3e"
+  },
+  "client": {
+    "$oid": "68123cdbab750f1b48685775"
+  },
+  "date": {
+    "$date": "2025-04-30T00:00:00.000Z"
+  },
+  "produits": [
+    {
+      "produit": {
+        "$oid": "68123cecab750f1b4868577b"
+      },
+      "nom": "Ordinateur Portable HP",
+      "quantite": 1,
+      "prixUnitaire": 899.99,
+      "total": 899.99,
+      "_id": {
+        "$oid": "68124b335b4ed70e024a8a3f"
+      }
+    },
+    {
+      "produit": {
+        "$oid": "68123cecab750f1b4868577c"
+      },
+      "nom": "Smartphone Samsung",
+      "quantite": 1,
+      "prixUnitaire": 599.99,
+      "total": 599.99,
+      "_id": {
+        "$oid": "68124b335b4ed70e024a8a40"
+      }
+    },
+    {
+      "produit": {
+        "$oid": "68123cecab750f1b4868577e"
+      },
+      "nom": "Chaise de Bureau",
+      "quantite": 1,
+      "prixUnitaire": 129.99,
+      "total": 129.99,
+      "_id": {
+        "$oid": "68124b335b4ed70e024a8a41"
+      }
+    },
+    {
+      "produit": {
+        "$oid": "68123cecab750f1b4868577c"
+      },
+      "nom": "Smartphone Samsung",
+      "quantite": 1,
+      "prixUnitaire": 599.99,
+      "total": 599.99,
+      "_id": {
+        "$oid": "68124b335b4ed70e024a8a42"
+      }
+    },
+    {
+      "produit": {
+        "$oid": "68123cecab750f1b4868577c"
+      },
+      "nom": "Smartphone Samsung",
+      "quantite": 1,
+      "prixUnitaire": 599.99,
+      "total": 599.99,
+      "_id": {
+        "$oid": "68124b335b4ed70e024a8a43"
+      }
+    },
+    {
+      "produit": {
+        "$oid": "68123cecab750f1b4868577c"
+      },
+      "nom": "Smartphone Samsung",
+      "quantite": 1,
+      "prixUnitaire": 599.99,
+      "total": 599.99,
+      "_id": {
+        "$oid": "68124b335b4ed70e024a8a44"
+      }
+    },
+    {
+      "produit": {
+        "$oid": "68123cecab750f1b4868577c"
+      },
+      "nom": "Smartphone Samsung",
+      "quantite": 1,
+      "prixUnitaire": 599.99,
+      "total": 599.99,
+      "_id": {
+        "$oid": "68124b335b4ed70e024a8a45"
+      }
+    }
+  ],
+  "totalHT": 4029.9299999999994,
+  "tva": 805.9859999999999,
+  "totalTTC": 4835.915999999999,
+  "createdAt": {
+    "$date": "2025-04-30T16:09:23.576Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-30T16:09:23.576Z"
+  },
+  "__v": 0
+}]
