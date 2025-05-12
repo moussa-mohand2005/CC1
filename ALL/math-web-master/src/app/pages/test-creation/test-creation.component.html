@@ -1,0 +1,119 @@
+<div class="min-h-screen bg-gradient-to-b from-blue-100 to-blue-200 px-4 py-12">
+  <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl p-10 border border-blue-200">
+    <h2 class="text-center text-3xl font-bold text-blue-800 mb-10 tracking-wide">Create New Test</h2>
+
+    <div *ngIf="loading" class="text-center py-4">
+      <div class="animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent mx-auto"></div>
+    </div>
+
+    <div *ngIf="errorMessage" class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded text-center mb-4">
+      {{ errorMessage }}
+    </div>
+
+    <div *ngIf="successMessage" class="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded text-center mb-4">
+      {{ successMessage }}
+    </div>
+
+    <form [formGroup]="testForm" (ngSubmit)="submitTest()" class="space-y-10 text-gray-800">
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <label class="block font-medium text-blue-700 mb-1">Title (Arabic)</label>
+          <input type="text" formControlName="titleAr" class="input-field" />
+        </div>
+        <div>
+          <label class="block font-medium text-blue-700 mb-1">Title (English)</label>
+          <input type="text" formControlName="titleEn" class="input-field" />
+        </div>
+        <div>
+          <label class="block font-medium text-blue-700 mb-1">Title (French)</label>
+          <input type="text" formControlName="titleFr" class="input-field" />
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div>
+          <label class="block text-sm font-semibold text-blue-800 mb-2">Description (Arabic)</label>
+          <textarea rows="3" formControlName="descriptionAr"
+            class="w-full px-4 py-3 bg-blue-50 border border-blue-300 rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm resize-none"
+            placeholder="وصف باللغة العربية..."></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-blue-800 mb-2">Description (English)</label>
+          <textarea rows="3" formControlName="descriptionEn"
+            class="w-full px-4 py-3 bg-blue-50 border border-blue-300 rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm resize-none"
+            placeholder="Description in English..."></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-blue-800 mb-2">Description (French)</label>
+          <textarea rows="3" formControlName="descriptionFr"
+            class="w-full px-4 py-3 bg-blue-50 border border-blue-300 rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm resize-none"
+            placeholder="Description en français..."></textarea>
+        </div>
+      </div>
+      
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="block font-medium text-blue-700 mb-1">Grade</label>
+          <select formControlName="classroomId" class="input-field">
+            <option value="" disabled>Select Grade</option>
+            <option *ngFor="let grade of [1,2,3,4,5,6]" [value]="grade">Grade {{ grade }}</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-medium text-blue-700 mb-1">Select Games</label>
+          <div class="bg-blue-50 border border-blue-200 p-3 rounded-md space-y-1">
+            <label *ngFor="let game of ['findcomposition', 'WritetheFollowingNumberinLetters', 'IdentifthUnitsTensHundredsandThousands']" class="block text-sm">
+              <input type="checkbox" [value]="game" (change)="onCheckboxChange($event)" [checked]="selectedGameTypes.includes(game)" class="mr-2" />
+              {{ game }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="selectedGameTypes.includes('findcomposition')" formGroupName="findcomposition">
+        <h3 class="text-lg font-bold text-blue-800 mt-6 mb-4">Find Composition Settings</h3>
+        <div class="grid md:grid-cols-4 gap-4">
+          <input type="number" formControlName="time" placeholder="Time (sec)" class="input-field" />
+          <input type="number" formControlName="attemptsAllowed" placeholder="Attempts" class="input-field" />
+          <input type="number" formControlName="number" placeholder="Number" class="input-field" />
+          <input type="text" (input)="updateNumberArray($event, 'findcomposition')" placeholder="Solutions (3,4,5)" class="input-field" />
+        </div>
+      </div>
+
+      <div *ngIf="selectedGameTypes.includes('WritetheFollowingNumberinLetters')" formGroupName="WritetheFollowingNumberinLetters">
+        <h3 class="text-lg font-bold text-blue-800 mt-6 mb-4">Write Number in Letters Settings</h3>
+        <div class="grid md:grid-cols-4 gap-4">
+          <input type="number" formControlName="time" placeholder="Time (sec)" class="input-field" />
+          <input type="number" formControlName="attemptsAllowed" placeholder="Attempts" class="input-field" />
+          <input type="number" formControlName="number" placeholder="Number" class="input-field" />
+          <input type="text" (input)="updateStringArray($event, 'WritetheFollowingNumberinLetters')" placeholder="Solutions (three, four)" class="input-field" />
+        </div>
+      </div>
+
+      <div *ngIf="selectedGameTypes.includes('IdentifthUnitsTensHundredsandThousands')" formGroupName="IdentifthUnitsTensHundredsandThousands">
+        <h3 class="text-lg font-bold text-blue-800 mt-6 mb-4">Identify Place Value Settings</h3>
+        <div class="grid md:grid-cols-4 gap-4">
+          <input type="number" formControlName="time" placeholder="Time (sec)" class="input-field" />
+          <input type="number" formControlName="attemptsAllowed" placeholder="Attempts" class="input-field" />
+          <input type="number" formControlName="number" placeholder="Number" class="input-field" />
+        </div>
+        <div formGroupName="solution" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+          <input type="number" formControlName="units" placeholder="Units" class="input-field" />
+          <input type="number" formControlName="tens" placeholder="Tens" class="input-field" />
+          <input type="number" formControlName="hundreds" placeholder="Hundreds" class="input-field" />
+          <input type="number" formControlName="thousands" placeholder="Thousands" class="input-field" />
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button type="submit"
+                [disabled]="testForm.invalid || loading"
+                class="px-6 py-3 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold shadow hover:from-blue-500 hover:to-blue-700 transition disabled:opacity-50">
+          Save Test
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="min-h-screen bg-gradient-to-b from-blue-100 to-blue-200 px-4 py-12">
+    <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl p-10 border border-blue-200">
+      <h2 class="text-center text-2xl font-bold text-blue-800 mb-10 tracking-wide">Edit Student</h2>
+  
+      <div *ngIf="loading" class="text-center text-blue-600">Loading student data...</div>
+      <div *ngIf="errorMessage" class="text-center text-red-500 mb-4">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="text-center text-green-600 mb-4">{{ successMessage }}</div>
+  
+      <form *ngIf="!loading" [formGroup]="editForm" (ngSubmit)="saveChanges()" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm text-blue-800 mb-1">First Name</label>
+          <input formControlName="firstName" type="text" class="w-full px-4 py-2 border border-blue-300 rounded-md text-gray-800 bg-blue-50">
+        </div>
+  
+        <div>
+          <label class="block text-sm text-blue-800 mb-1">Last Name</label>
+          <input formControlName="lastName" type="text" class="w-full px-4 py-2 border border-blue-300 rounded-md text-gray-800 bg-blue-50">
+        </div>
+  
+        <div>
+          <label class="block text-sm text-blue-800 mb-1">Birth Date</label>
+          <input formControlName="birthday" type="date" class="w-full px-4 py-2 border border-blue-300 rounded-md text-gray-800 bg-blue-50">
+        </div>
+  
+        <div>
+          <label class="block text-sm text-blue-800 mb-1">Grade</label>
+          <select formControlName="schoolGrade" class="w-full px-4 py-2 border border-blue-300 rounded-md text-gray-800 bg-blue-50">
+            <option value="">Select Grade</option>
+            <option *ngFor="let grade of [1,2,3,4,5,6]" [value]="grade">Grade {{ grade }}</option>
+          </select>
+        </div>
+  
+        <div>
+          <label class="block text-sm text-blue-800 mb-1">Gender</label>
+          <select formControlName="gender" class="w-full px-4 py-2 border border-blue-300 rounded-md text-gray-800 bg-blue-50">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+  
+        <div class="md:col-span-2 flex justify-center gap-4 pt-6">
+          <button type="button" (click)="resetForm()" class="px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition">Reset</button>
+          <button type="submit" [disabled]="editForm.invalid || loading" class="px-6 py-2 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition disabled:opacity-50">
+            Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

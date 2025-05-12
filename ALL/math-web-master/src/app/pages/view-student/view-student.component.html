@@ -1,0 +1,65 @@
+<div class="min-h-screen bg-gradient-to-b from-blue-100 to-blue-200 px-6 py-12">
+    <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl border border-blue-200 overflow-hidden">
+      
+      <div *ngIf="loading" class="p-10 text-center text-blue-600">
+        Loading student information...
+      </div>
+  
+      <div *ngIf="errorMessage" class="p-10">
+        <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded text-center text-lg">
+          {{ errorMessage }}
+        </div>
+      </div>
+      <div *ngIf="!loading && studentData">
+        
+        <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-10 py-8 text-white">
+          <h1 class="text-3xl font-bold tracking-wide mb-1">
+            {{ studentData.firstName }} {{ studentData.lastName }}
+          </h1>
+          <p class="text-blue-100">Student ID: {{ studentData.uid }}</p>
+        </div>
+  
+        <div class="px-10 py-8 bg-white">
+          <h2 class="text-2xl font-semibold text-blue-800 mb-6">Personal Information</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-800 text-lg">
+            <div>
+              <p class="font-medium text-blue-700">Full Name</p>
+              <p class="mt-1">{{ studentData.firstName }} {{ studentData.lastName }}</p>
+            </div>
+            <div>
+              <p class="font-medium text-blue-700">Birth Date</p>
+              <p class="mt-1">{{ studentData.birthday || 'Not specified' }}</p>
+            </div>
+            <div>
+              <p class="font-medium text-blue-700">Gender</p>
+              <p class="mt-1">{{ studentData.gender }}</p>
+            </div>
+            <div>
+              <p class="font-medium text-blue-700">Grade</p>
+              <p class="mt-1">Grade {{ studentData.schoolGrade }}</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="px-10 py-8 bg-blue-50">
+          <h2 class="text-2xl font-semibold text-blue-800 mb-6">Academic Information</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-800 text-lg">
+            <div>
+              <p class="font-medium text-blue-700">Total QR Scans</p>
+              <p class="mt-1">{{ studentData.qrScans || 0 }}</p>
+            </div>
+            <div>
+              <p class="font-medium text-blue-700">Joined Date</p>
+              <p class="mt-1">{{ studentData.createdAt | date }}</p>
+            </div>
+          </div>
+        </div>
+  
+        <div *ngIf="studentData.notes" class="px-10 py-8">
+          <h2 class="text-2xl font-semibold text-blue-800 mb-6">Additional Notes</h2>
+          <p class="text-gray-700 text-lg">{{ studentData.notes }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

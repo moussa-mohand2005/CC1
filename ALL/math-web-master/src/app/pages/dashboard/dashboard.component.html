@@ -1,0 +1,21 @@
+<div *ngIf="loading">
+    Loading dashboard...
+  </div>
+  
+  <div *ngIf="!loading">
+    <app-nav-bar></app-nav-bar>
+    <div *ngIf="userRole === 'Teacher'" class="teacher-dashboard ">
+        <app-sidebar (sectionSelected)="onSectionSelected($event)"></app-sidebar>
+        <div class="teacher-content ml-64 mt-16 ">
+            <app-teacher-home *ngIf="selectedSection === 'teacher-home'"></app-teacher-home>
+            <app-student-registration *ngIf="selectedSection === 'student-register'"></app-student-registration>
+            <app-student-list *ngIf="selectedSection === 'student-list'"></app-student-list>
+            <app-test-creation *ngIf="selectedSection === 'test-create'"></app-test-creation>
+            <app-test-list *ngIf="selectedSection === 'test-list'"></app-test-list>
+            <app-edit-student *ngIf="selectedSection === 'edit-student'"></app-edit-student>
+            <app-view-student *ngIf="selectedSection === 'view-student'"></app-view-student>
+            <app-parent-list *ngIf="selectedSection === 'parent-list'"></app-parent-list>
+        </div>
+    </div>
+  </div>
+  

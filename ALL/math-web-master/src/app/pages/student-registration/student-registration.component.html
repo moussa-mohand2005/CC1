@@ -1,0 +1,73 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-100 to-blue-200 px-4 py-12">
+  <div class="w-full max-w-7xl bg-white rounded-2xl shadow-xl p-10">
+    <h2 class="text-center text-gray-800 text-2xl font-bold mb-10 tracking-wider">STUDENT REGISTRATION</h2>
+
+    <form [formGroup]="studentForm" (ngSubmit)="saveAllStudents()" class="space-y-8">
+      <div formArrayName="students" class="space-y-6">
+        <div *ngFor="let studentGroup of students.controls; let i = index" [formGroupName]="i"
+             class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-blue-50 p-6 rounded-xl shadow-sm">
+
+          <div>
+            <label class="text-sm block mb-1 text-gray-700">First Name</label>
+            <input formControlName="firstName" type="text"
+              class="w-full bg-white text-gray-800 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 transition" />
+          </div>
+
+          <div>
+            <label class="text-sm block mb-1 text-gray-700">Last Name</label>
+            <input formControlName="lastName" type="text"
+              class="w-full bg-white text-gray-800 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 transition" />
+          </div>
+
+          <div>
+            <label class="text-sm block mb-1 text-gray-700">Birth Date</label>
+            <input formControlName="birthday" type="date"
+              class="w-full bg-white text-gray-800 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 transition" />
+          </div>
+
+          <div>
+            <label class="text-sm block mb-1 text-gray-700">Grade</label>
+            <select formControlName="schoolGrade"
+              class="w-full bg-white text-gray-800 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 transition">
+              <option value="1">Grade 1</option>
+              <option value="2">Grade 2</option>
+              <option value="3">Grade 3</option>
+              <option value="4">Grade 4</option>
+              <option value="5">Grade 5</option>
+              <option value="6">Grade 6</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="text-sm block mb-1 text-gray-700">Gender</label>
+            <select formControlName="gender"
+              class="w-full bg-white text-gray-800 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 transition">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="text-sm block mb-1 text-gray-700">PIN Code (4 digits)</label>
+            <input formControlName="password" maxlength="4" type="text" placeholder="1234"
+              class="w-full bg-white text-gray-800 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 transition" />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <button type="button" (click)="addStudent()"
+          class="px-6 py-2 rounded-full bg-blue-400 hover:bg-blue-500 text-white font-semibold shadow-sm transition">
+          + Add Another Student
+        </button>
+        <button type="submit" [disabled]="studentForm.invalid"
+          class="px-6 py-2 rounded-full bg-green-400 hover:bg-green-500 text-white font-semibold shadow-sm transition disabled:opacity-50">
+           Save All Students
+        </button>
+      </div>
+
+      <p *ngIf="successMessage" class="text-center text-green-600 mt-6">{{ successMessage }}</p>
+      <p *ngIf="errorMessage" class="text-center text-red-600">{{ errorMessage }}</p>
+    </form>
+  </div>
+</div>
